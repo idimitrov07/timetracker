@@ -13,7 +13,6 @@ class Work < ActiveRecord::Base
   scope :recent, -> { where("datetimeperformed > '#{Time.now - 7.days}'") }
 
 
-  private
   def date_performed_cannot_be_in_the_future
     if datetimeperformed.present? && datetimeperformed > Date.today
       errors.add(:datetimeperformed, "can't be in the future")
