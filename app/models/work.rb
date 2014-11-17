@@ -10,7 +10,12 @@ class Work < ActiveRecord::Base
   validate  :date_performed_cannot_be_in_the_future
 
   scope :fullday,-> { where("hours >= 8") }
-  scope :recent, -> { where("datetimeperformed > '#{Time.now - 7.days}'") }
+  #scope :recent, -> { where("datetimeperformed > '#{Time.now - 7.days}'") }
+
+  def self.recentdays(numdaysago)
+    since_date = Time.now - numdaysago.to_i.days
+    where("datetimeperformed > '#{since_date}'")
+  end
 
 
   def date_performed_cannot_be_in_the_future
