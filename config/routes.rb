@@ -15,6 +15,8 @@ Timetracker::Application.routes.draw do
   #   resources :products
 
   resources :companies
+  resources :projects
+  resources :works
 
   # Example resource route with options:
   #   resources :products do
