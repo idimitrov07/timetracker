@@ -2,13 +2,29 @@
 <html>
 <head>
   <title>Timetracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="container">
+  <header>
+    Nav goes here
+  </header>
+  <section id="main">
+    <article>
+      <%= yield %>
+    </article>
+    <aside>
+      <%= yield :aside %>
+    </aside>
+  </section>
+  <footer>
+    <p>
+      Time Tracker is a <em>Sample Company</em> app.
+    </p>
+  </footer>
+</div>
 </body>
 </html>
